@@ -1,10 +1,19 @@
-Title: Sportity
+Title: HTTP for Sportity
 Package: sportity
 Version: 0.0.0.9000
 Authors@R: 
-    person("Jonas", "Aldous", , "jonas.aldous@gmail.com", role = c("aut", "cre"))
+    person("Jonas", "Aldous", , "jonas.aldous@gmail.com", role = c("aut", "cre", "cph"))
 Description: Create functions for HTTP requests.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Imports: 
+    base64enc,
+    dplyr,
+    glue,
+    httr2,
+    purrr,
+    tools
+URL: https://github.com/loprtq/sportity
+BugReports: https://github.com/loprtq/sportity/issues

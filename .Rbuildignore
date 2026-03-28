@@ -4,3 +4,5 @@
 ^\.Rproj\.user$
 ^sportity\.Rproj$
 ^LICENSE\.md$
+^CRAN-SUBMISSION$
+^cran-comments\.md$

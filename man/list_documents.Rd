@@ -11,11 +11,21 @@ list_documents(api, password, event_id = "")
 
 \item{password}{The event/series password.}
 
-\item{event_id}{The id of the event. To list all document in a series do not specify an ´event_id´. If to only list documents in a particular event, then specify ´event_id´.}
+\item{event_id}{The id of the event. To list all document in a series do not
+specify an ´event_id´. If to only list documents in a particular event, then
+specify ´event_id´.}
 }
 \value{
 A data frame.
 }
 \description{
 List all documents in an event or series.
+}
+\examples{
+\dontrun{
+list_documents(
+  api = "your_api_key",
+  password = "your_password"
+)
+}
 }

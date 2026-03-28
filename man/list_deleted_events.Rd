@@ -15,3 +15,8 @@ A data frame.
 \description{
 List deleted events on Sportity
 }
+\examples{
+\dontrun{
+list_deleted_events(api = "your_api_key")
+}
+}

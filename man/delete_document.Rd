@@ -9,8 +9,17 @@ delete_document(api, document_id)
 \arguments{
 \item{api}{An API key from Sportity}
 
-\item{document_id}{The id of the document to be deleted. The id can either be retrieved using ´list_documents´ or from Sportity.}
+\item{document_id}{The id of the document to be deleted. The id can either be
+retrieved using ´list_documents´ or from Sportity.}
+}
+\value{
+A console message.
 }
 \description{
 Delete a document from an event or series.
+}
+\examples{
+\dontrun{
+delete_document(api = "your_api_key", document_id = "your_document_id")
+}
 }

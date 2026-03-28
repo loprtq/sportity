@@ -4,7 +4,17 @@
 \alias{create_text}
 \title{Create text document}
 \usage{
-create_text(api, password, document_name, text, event_id = NULL)
+create_text(
+  api,
+  password,
+  document_name,
+  text,
+  folder_id = NULL,
+  event_id = NULL,
+  push_notification = TRUE,
+  push_notification_title = NULL,
+  show_time = FALSE
+)
 }
 \arguments{
 \item{api}{An API key from Sportity.}
@@ -13,8 +23,37 @@ create_text(api, password, document_name, text, event_id = NULL)
 
 \item{document_name}{The name of the document to be created.}
 
-\item{event_id}{The id of the event. To create series folder do not specify an ´event_id´. If to create a document in a particular event, then specify ´event_id´.}
+\item{text}{The text content of the document to be created.}
+
+\item{folder_id}{The id of the folder to create the document in. To create a
+document in the root folder do not specify a ´folder_id´. If to create a
+document in a particular folder, then specify ´folder_id´.}
+
+\item{event_id}{The id of the event. To create series folder do not specify
+an ´event_id´. If to create a document in a particular event, then specify
+´event_id´.}
+
+\item{push_notification}{Whether to send a push notification to the users
+when the document is created. Default is TRUE.}
+
+\item{push_notification_title}{The title of the push notification.}
+
+\item{show_time}{Whether the time of the document should be shown. Default is
+FALSE.}
+}
+\value{
+A console message.
 }
 \description{
 Create a text document in an event or series.
+}
+\examples{
+\dontrun{
+create_text(
+  api = "your_api_key",
+  password = "your_password",
+  document_name = "Your Text Name",
+  text = "Your text content"
+)
+}
 }

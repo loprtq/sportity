@@ -17,3 +17,11 @@ A data frame.
 \description{
 List personal logins for an event or series.
 }
+\examples{
+\dontrun{
+list_personal_logins(
+ api = "your_api_key",
+ password = "your_password"
+)
+}
+}

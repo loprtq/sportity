@@ -3,16 +3,20 @@
 #' @description
 #' List active events on Sportity.
 #'
-#'
 #' @param api An API key from Sportity.
 #'
 #' @return A data frame.
 #' @export
 #'
+#' @examples
+#' \dontrun{
+#' list_active_events(api = "your_api_key")
+#' }
 
 list_active_events <- function(
-    api
+  api
 ) {
+  # HTTP request
   httr2::request(
     "https://admin.sportity.com/api/events/flat"
   ) |>

@@ -9,7 +9,11 @@ create_pdf(
   password,
   filepath = file.choose(),
   document_name = tools::file_path_sans_ext(basename(filepath)),
-  event_id = NULL
+  folder_id = NULL,
+  event_id = NULL,
+  push_notification = TRUE,
+  push_notification_title = NULL,
+  show_time = FALSE
 )
 }
 \arguments{
@@ -19,10 +23,36 @@ create_pdf(
 
 \item{filepath}{The path to the document to be created/uploaded.}
 
-\item{document_name}{The id of the document to be deleted.}
+\item{document_name}{The name of the document to be created.}
 
-\item{event_id}{The id of the event. To create series folder do not specify an ´event_id´. If to create a document in a particular event, then specify ´event_id´.}
+\item{folder_id}{The id of the folder to create the document in. To create a
+document in the root folder do not specify a ´folder_id´. If to create a
+document in a particular folder, then specify ´folder_id´.}
+
+\item{event_id}{The id of the event. To create series folder do not specify
+an ´event_id´. If to create a document in a particular event, then specify
+´event_id´.}
+
+\item{push_notification}{Whether to send a push notification to the users
+when the document is created. Default is TRUE.}
+
+\item{push_notification_title}{The title of the push notification.}
+
+\item{show_time}{Whether the time of the document should be shown. Default is
+FALSE.}
+}
+\value{
+A console message.
 }
 \description{
 Create a pdf document in an event or series.
+}
+\examples{
+\dontrun{
+create_pdf(
+  api = "your_api_key",
+  password = "your_password",
+  filepath = "path/to/your/document.pdf"
+)
+}
 }

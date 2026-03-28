@@ -1,6 +1,6 @@
 Title: HTTP for Sportity
 Package: sportity
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person("Jonas", "Aldous", , "jonas.aldous@gmail.com", role = c("aut", "cre", "cph"))
 Description: Create functions for HTTP requests.

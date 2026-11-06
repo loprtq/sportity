@@ -1,0 +1,35 @@
+# Package index
+
+## Events
+
+- [`list_active_events()`](https://loprtq.github.io/sportity/dev/reference/list_active_events.md)
+  : List active events
+- [`list_past_events()`](https://loprtq.github.io/sportity/dev/reference/list_past_events.md)
+  : List past events
+- [`list_deleted_events()`](https://loprtq.github.io/sportity/dev/reference/list_deleted_events.md)
+  : List deleted events
+- [`list_all_events()`](https://loprtq.github.io/sportity/dev/reference/list_all_events.md)
+  : List all events
+- [`list_personal_logins()`](https://loprtq.github.io/sportity/dev/reference/list_personal_logins.md)
+  : List personal logins
+
+## Documents
+
+List, create, move and delete documents in a series or event.
+
+- [`list_documents()`](https://loprtq.github.io/sportity/dev/reference/list_documents.md)
+  : List documents
+- [`create_folder()`](https://loprtq.github.io/sportity/dev/reference/create_folder.md)
+  : Create a folder
+- [`create_image()`](https://loprtq.github.io/sportity/dev/reference/create_image.md)
+  : Create an image document
+- [`create_link()`](https://loprtq.github.io/sportity/dev/reference/create_link.md)
+  : Create a link document
+- [`create_pdf()`](https://loprtq.github.io/sportity/dev/reference/create_pdf.md)
+  : Upload a PDF document
+- [`create_text()`](https://loprtq.github.io/sportity/dev/reference/create_text.md)
+  : Create a text document
+- [`reorder_document()`](https://loprtq.github.io/sportity/dev/reference/reorder_document.md)
+  : Move a document
+- [`delete_document()`](https://loprtq.github.io/sportity/dev/reference/delete_document.md)
+  : Delete a document

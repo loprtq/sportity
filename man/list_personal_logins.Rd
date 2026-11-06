@@ -7,21 +7,31 @@
 list_personal_logins(api, password)
 }
 \arguments{
-\item{api}{An API key from Sportity.}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 
-\item{password}{The event/series password.}
+\item{password}{The password of the series or event.}
 }
 \value{
-A data frame.
+A list with one element per login, as returned by the API.
 }
 \description{
-List personal logins for an event or series.
+Lists the personal logins of a series or event.
 }
 \examples{
 \dontrun{
 list_personal_logins(
- api = "your_api_key",
- password = "your_password"
+  api = Sys.getenv("SPORTITY_API"),
+  password = "my_password"
 )
 }
 }
+\seealso{
+Other event functions:
+\code{\link[=list_active_events]{list_active_events()}},
+\code{\link[=list_all_events]{list_all_events()}},
+\code{\link[=list_deleted_events]{list_deleted_events()}},
+\code{\link[=list_past_events]{list_past_events()}}
+}
+\concept{event functions}

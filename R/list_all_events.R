@@ -1,16 +1,17 @@
 #' List all events
 #'
-#' @description
-#' List all events on Sportity - active, past and deleted.
+#' Lists all events of your account: active, past and deleted. Combines
+#' [list_active_events()], [list_past_events()] and [list_deleted_events()].
 #'
-#' @param api An API key from Sportity.
+#' @inheritParams create_text
 #'
-#' @return A data frame.
+#' @inherit list_active_events return
+#' @family event functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' list_all_events(api = "your_api_key")
+#' list_all_events(api = Sys.getenv("SPORTITY_API"))
 #' }
 
 list_all_events <- function(

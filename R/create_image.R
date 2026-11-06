@@ -1,34 +1,26 @@
-#' Create image document
+#' Create an image document
 #'
-#' @description
-#' Create an image document in an event or series.
+#' Uploads an image to a series or event.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
-#' @param document_name The name of the document to be created.
-#' @param filepath The file path to the image to be uploaded.
-#' @param folder_id The id of the folder to create the document in. To create a
-#' document in the root folder do not specify a ´folder_id´. If to create a
-#' document in a particular folder, then specify ´folder_id´.
-#' @param event_id The id of the event. To create series folder do not specify
-#' an ´event_id´. If to create a document in a particular event, then specify
-#' ´event_id´.
-#' @param push_notification Whether to send a push notification to the users
-#' when the document is created. Default is TRUE.
-#' @param push_notification_title The title of the push notification.
-#' @param show_time Whether the time of the document should be shown. Default is
-#' FALSE.
+#' The document is added to the root folder of the series unless `event_id`
+#' and/or `folder_id` is given. Find these ids with [list_active_events()] and
+#' [list_documents()].
 #'
-#' @return A console message.
+#' @inheritParams create_text
+#' @param filepath Path to the image file to upload.
+#'
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' create_image(
-#'   api = "your_api_key",
-#'   password = "your_password",
-#'   document_name = "Your Image Name",
-#'   filepath = "path/to/your/image.jpg"
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   password = "my_password",
+#'   document_name = "Course map",
+#'   filepath = "course_map.png"
 #' )
 #' }
 

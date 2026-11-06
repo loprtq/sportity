@@ -1,34 +1,54 @@
-#' Create text document
+#' Create a text document
 #'
-#' @description
-#' Create a text document in an event or series.
+#' Adds a text document to a series or event.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
-#' @param document_name The name of the document to be created.
-#' @param text The text content of the document to be created.
-#' @param folder_id The id of the folder to create the document in. To create a
-#' document in the root folder do not specify a ´folder_id´. If to create a
-#' document in a particular folder, then specify ´folder_id´.
-#' @param event_id The id of the event. To create series folder do not specify
-#' an ´event_id´. If to create a document in a particular event, then specify
-#' ´event_id´.
-#' @param push_notification Whether to send a push notification to the users
-#' when the document is created. Default is TRUE.
-#' @param push_notification_title The title of the push notification.
-#' @param show_time Whether the time of the document should be shown. Default is
-#' FALSE.
+#' The document is added to the root folder of the series unless `event_id`
+#' and/or `folder_id` is given. Find these ids with [list_active_events()] and
+#' [list_documents()].
 #'
-#' @return A console message.
+#' @param api Your Sportity API key. Avoid writing it in scripts; store it in
+#'   the `SPORTITY_API` environment variable and use
+#'   `Sys.getenv("SPORTITY_API")`.
+#' @param password The password of the series or event.
+#' @param document_name Name of the document, as shown in the app.
+#' @param text Text content of the document.
+#' @param folder_id Id of the folder to add the document to. `NULL` (default)
+#'   uses the root folder.
+#' @param event_id Id of the event to add the document to. `NULL` (default)
+#'   adds it to the series.
+#' @param push_notification Send a push notification to users? Default `TRUE`.
+#' @param push_notification_title Title of the push notification. Defaults to
+#'   `document_name`.
+#' @param show_time Show the time of the document in the app? Default `FALSE`.
+#'
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
+#' api <- Sys.getenv("SPORTITY_API")
+#'
 #' create_text(
-#'   api = "your_api_key",
-#'   password = "your_password",
-#'   document_name = "Your Text Name",
-#'   text = "Your text content"
+#'   api = api,
+#'   password = "my_password",
+#'   document_name = "Welcome",
+#'   text = "See you at the start line!"
+#' )
+#'
+#' # Add it to the "Info" folder of an event instead
+#' events <- list_active_events(api)
+#' event_id <- events$event_id[1]
+#' docs <- list_documents(api, "my_password", event_id = event_id)
+#'
+#' create_text(
+#'   api = api,
+#'   password = "my_password",
+#'   document_name = "Schedule",
+#'   text = "Doors open at 8:00.",
+#'   folder_id = docs$document_id[docs$name == "Info"],
+#'   event_id = event_id
 #' )
 #' }
 

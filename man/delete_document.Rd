@@ -2,24 +2,40 @@
 % Please edit documentation in R/delete_document.R
 \name{delete_document}
 \alias{delete_document}
-\title{Delete document}
+\title{Delete a document}
 \usage{
 delete_document(api, document_id)
 }
 \arguments{
-\item{api}{An API key from Sportity}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 
-\item{document_id}{The id of the document to be deleted. The id can either be
-retrieved using ´list_documents´ or from Sportity.}
+\item{document_id}{Id of the document, as returned by \code{\link[=list_documents]{list_documents()}}.}
 }
 \value{
-A console message.
+No return value, called for side effects. Prints a confirmation
+message.
 }
 \description{
-Delete a document from an event or series.
+Deletes a document or folder.
 }
 \examples{
 \dontrun{
-delete_document(api = "your_api_key", document_id = "your_document_id")
+delete_document(
+  api = Sys.getenv("SPORTITY_API"),
+  document_id = "my_document_id"
+)
 }
 }
+\seealso{
+Other document functions:
+\code{\link[=create_folder]{create_folder()}},
+\code{\link[=create_image]{create_image()}},
+\code{\link[=create_link]{create_link()}},
+\code{\link[=create_pdf]{create_pdf()}},
+\code{\link[=create_text]{create_text()}},
+\code{\link[=list_documents]{list_documents()}},
+\code{\link[=reorder_document]{reorder_document()}}
+}
+\concept{document functions}

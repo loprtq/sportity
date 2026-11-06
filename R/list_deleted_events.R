@@ -1,16 +1,16 @@
 #' List deleted events
 #'
-#' @description
-#' List deleted events on Sportity
+#' Lists the deleted events of your account.
 #'
-#' @param api An API key from Sportity.
+#' @inheritParams create_text
 #'
-#' @return A data frame.
+#' @inherit list_active_events return
+#' @family event functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' list_deleted_events(api = "your_api_key")
+#' list_deleted_events(api = Sys.getenv("SPORTITY_API"))
 #' }
 
 list_deleted_events <- function(

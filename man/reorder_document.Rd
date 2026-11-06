@@ -2,27 +2,45 @@
 % Please edit documentation in R/reorder_document.R
 \name{reorder_document}
 \alias{reorder_document}
-\title{Reorder document}
+\title{Move a document}
 \usage{
 reorder_document(api, document_id, position)
 }
 \arguments{
-\item{api}{An API key from Sportity}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 
-\item{document_id}{The id of the document to be reordered. The id can either
-be retrieved using ´list_documents´ or from Sportity.}
+\item{document_id}{Id of the document, as returned by \code{\link[=list_documents]{list_documents()}}.}
 
-\item{position}{The new position of the document.}
+\item{position}{New position of the document. The current positions are in
+the \code{sort_order} column of \code{\link[=list_documents]{list_documents()}}.}
+}
+\value{
+No return value, called for side effects. Prints a confirmation
+message.
 }
 \description{
-Reorder a document in an event or series.
+Changes the position of a document in its list.
 }
 \examples{
 \dontrun{
+# Move a document to the top
 reorder_document(
-  api = "your_api_key",
-  document_id = "your_document_id",
+  api = Sys.getenv("SPORTITY_API"),
+  document_id = "my_document_id",
   position = 1
 )
 }
 }
+\seealso{
+Other document functions:
+\code{\link[=create_folder]{create_folder()}},
+\code{\link[=create_image]{create_image()}},
+\code{\link[=create_link]{create_link()}},
+\code{\link[=create_pdf]{create_pdf()}},
+\code{\link[=create_text]{create_text()}},
+\code{\link[=delete_document]{delete_document()}},
+\code{\link[=list_documents]{list_documents()}}
+}
+\concept{document functions}

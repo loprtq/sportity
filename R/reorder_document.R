@@ -1,20 +1,22 @@
-#' Reorder document
+#' Move a document
 #'
-#' @description
-#' Reorder a document in an event or series.
+#' Changes the position of a document in its list.
 #'
-#' @param api An API key from Sportity
-#' @param document_id The id of the document to be reordered. The id can either
-#' be retrieved using ´list_documents´ or from Sportity.
-#' @param position The new position of the document.
+#' @inheritParams delete_document
+#' @param position New position of the document. The current positions are in
+#'   the `sort_order` column of [list_documents()].
 #'
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
+#' # Move a document to the top
 #' reorder_document(
-#'   api = "your_api_key",
-#'   document_id = "your_document_id",
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   document_id = "my_document_id",
 #'   position = 1
 #' )
 #' }
@@ -39,5 +41,7 @@ reorder_document <- function(
     httr2::req_perform()
 
   # Return console message
-  cli::cli_alert_success("Document '{document_name}' has been reordered.")
+  cli::cli_alert_success(
+    "Document with id {document_id} has been moved to position {position}."
+  )
 }

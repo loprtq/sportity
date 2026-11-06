@@ -7,16 +7,28 @@
 list_past_events(api)
 }
 \arguments{
-\item{api}{An API key from Sportity.}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 }
 \value{
-A data frame.
+A data frame with one row per event and columns \code{event_id}, \code{name},
+\code{start_date}, \code{end_date}, \code{cover}, \code{place}, \code{timezone}, \code{serie_id} and
+\code{password}.
 }
 \description{
-List past events on Sportity.
+Lists the past events of your account.
 }
 \examples{
 \dontrun{
-list_past_events(api = "your_api_key")
+list_past_events(api = Sys.getenv("SPORTITY_API"))
 }
 }
+\seealso{
+Other event functions:
+\code{\link[=list_active_events]{list_active_events()}},
+\code{\link[=list_all_events]{list_all_events()}},
+\code{\link[=list_deleted_events]{list_deleted_events()}},
+\code{\link[=list_personal_logins]{list_personal_logins()}}
+}
+\concept{event functions}

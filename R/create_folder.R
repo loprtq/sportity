@@ -1,32 +1,26 @@
-#' Create folder document
+#' Create a folder
 #'
-#' @description
-#' Create a folder document in an event or series.
+#' Adds a folder to a series or event. Other documents can then be
+#' added to it with `folder_id`.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
-#' @param document_name The name of the folder to be created.
-#' @param folder_id The id of the folder to create the document in. To create a
-#' document in the root folder do not specify a ´folder_id´. If to create a
-#' document in a particular folder, then specify ´folder_id´.
-#' @param event_id The id of the event. To create series folder do not specify
-#' an ´event_id´. If to create a document in a particular event, then specify
-#' ´event_id´.
-#' @param push_notification Whether to send a push notification to the users
-#' when the document is created. Default is TRUE.
-#' @param push_notification_title The title of the push notification.
-#' @param show_time Whether the time of the document should be shown. Default is
-#' FALSE.
+#' The document is added to the root folder of the series unless `event_id`
+#' and/or `folder_id` is given. Find these ids with [list_active_events()] and
+#' [list_documents()].
 #'
-#' @return A console message.
+#' @inheritParams create_text
+#' @param document_name Name of the folder, as shown in the app.
+#'
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' create_folder(
-#'   api = "your_api_key",
-#'   password = "your_password",
-#'   document_name = "Your Folder Name"
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   password = "my_password",
+#'   document_name = "Info"
 #' )
 #' }
 

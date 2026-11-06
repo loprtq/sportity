@@ -1,18 +1,21 @@
-#' Delete document
+#' Delete a document
 #'
-#' @description
-#' Delete a document from an event or series.
+#' Deletes a document or folder.
 #'
-#' @param api An API key from Sportity
-#' @param document_id The id of the document to be deleted. The id can either be
-#' retrieved using ´list_documents´ or from Sportity.
+#' @inheritParams create_text
+#' @param document_id Id of the document, as returned by [list_documents()].
 #'
-#' @return A console message.
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' delete_document(api = "your_api_key", document_id = "your_document_id")
+#' delete_document(
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   document_id = "my_document_id"
+#' )
 #' }
 
 delete_document <- function(

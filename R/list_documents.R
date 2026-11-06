@@ -1,23 +1,26 @@
 #' List documents
 #'
-#' @description
-#' List all documents in an event or series.
+#' Lists the documents (including folders) in a series or event.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
-#' @param event_id The id of the event. To list all document in a series do not
-#' specify an ´event_id´. If to only list documents in a particular event, then
-#' specify ´event_id´.
+#' @inheritParams create_text
+#' @param event_id Id of the event. `""` (default) lists all documents in the
+#'   series.
 #'
-#' @return A data frame.
+#' @return A data frame with one row per document and columns `event_id`,
+#'   `document_id`, `name`, `sort_order`, `type` (e.g. `"Folder"`, `"Text"`,
+#'   `"PDF"`), `text`, `url`, `created_at` and `updated_at`.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' list_documents(
-#'   api = "your_api_key",
-#'   password = "your_password"
+#' docs <- list_documents(
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   password = "my_password"
 #' )
+#'
+#' # Only the folders
+#' docs[docs$type == "Folder", ]
 #' }
 
 list_documents <- function(

@@ -1,19 +1,18 @@
 #' List personal logins
 #'
-#' @description
-#' List personal logins for an event or series.
+#' Lists the personal logins of a series or event.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
+#' @inheritParams create_text
 #'
-#' @return A data frame.
+#' @return A list with one element per login, as returned by the API.
+#' @family event functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' list_personal_logins(
-#'  api = "your_api_key",
-#'  password = "your_password"
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   password = "my_password"
 #' )
 #' }
 

@@ -1,16 +1,16 @@
 #' List past events
 #'
-#' @description
-#' List past events on Sportity.
+#' Lists the past events of your account.
 #'
-#' @param api An API key from Sportity.
+#' @inheritParams create_text
 #'
-#' @return A data frame.
+#' @inherit list_active_events return
+#' @family event functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' list_past_events(api = "your_api_key")
+#' list_past_events(api = Sys.getenv("SPORTITY_API"))
 #' }
 
 list_past_events <- function(

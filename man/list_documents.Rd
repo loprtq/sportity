@@ -7,25 +7,42 @@
 list_documents(api, password, event_id = "")
 }
 \arguments{
-\item{api}{An API key from Sportity.}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 
-\item{password}{The event/series password.}
+\item{password}{The password of the series or event.}
 
-\item{event_id}{The id of the event. To list all document in a series do not
-specify an ´event_id´. If to only list documents in a particular event, then
-specify ´event_id´.}
+\item{event_id}{Id of the event. \code{""} (default) lists all documents in the
+series.}
 }
 \value{
-A data frame.
+A data frame with one row per document and columns \code{event_id},
+\code{document_id}, \code{name}, \code{sort_order}, \code{type} (e.g. \code{"Folder"}, \code{"Text"},
+\code{"PDF"}), \code{text}, \code{url}, \code{created_at} and \code{updated_at}.
 }
 \description{
-List all documents in an event or series.
+Lists the documents (including folders) in a series or event.
 }
 \examples{
 \dontrun{
-list_documents(
-  api = "your_api_key",
-  password = "your_password"
+docs <- list_documents(
+  api = Sys.getenv("SPORTITY_API"),
+  password = "my_password"
 )
+
+# Only the folders
+docs[docs$type == "Folder", ]
 }
 }
+\seealso{
+Other document functions:
+\code{\link[=create_folder]{create_folder()}},
+\code{\link[=create_image]{create_image()}},
+\code{\link[=create_link]{create_link()}},
+\code{\link[=create_pdf]{create_pdf()}},
+\code{\link[=create_text]{create_text()}},
+\code{\link[=delete_document]{delete_document()}},
+\code{\link[=reorder_document]{reorder_document()}}
+}
+\concept{document functions}

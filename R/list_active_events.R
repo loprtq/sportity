@@ -1,16 +1,18 @@
 #' List active events
 #'
-#' @description
-#' List active events on Sportity.
+#' Lists the active events of your account.
 #'
-#' @param api An API key from Sportity.
+#' @inheritParams create_text
 #'
-#' @return A data frame.
+#' @return A data frame with one row per event and columns `event_id`, `name`,
+#'   `start_date`, `end_date`, `cover`, `place`, `timezone`, `serie_id` and
+#'   `password`.
+#' @family event functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' list_active_events(api = "your_api_key")
+#' list_active_events(api = Sys.getenv("SPORTITY_API"))
 #' }
 
 list_active_events <- function(

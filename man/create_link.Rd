@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_link.R
 \name{create_link}
 \alias{create_link}
-\title{Create link document}
+\title{Create a link document}
 \usage{
 create_link(
   api,
@@ -18,46 +18,61 @@ create_link(
 )
 }
 \arguments{
-\item{api}{An API key from Sportity.}
+\item{api}{Your Sportity API key. Avoid writing it in scripts; store it in
+the \code{SPORTITY_API} environment variable and use
+\code{Sys.getenv("SPORTITY_API")}.}
 
-\item{password}{The event/series password.}
+\item{password}{The password of the series or event.}
 
-\item{document_name}{The name of the document to be created.}
+\item{document_name}{Name of the document, as shown in the app.}
 
-\item{url}{The link to create a link document from.}
+\item{url}{The URL to link to.}
 
-\item{open_ext}{Whether the link should be opened in an external browser when
-clicked. Default is TRUE.}
+\item{open_ext}{Open the link in an external browser? Default \code{TRUE}.}
 
-\item{folder_id}{The id of the folder to create the document in. To create a
-document in the root folder do not specify a ´folder_id´. If to create a
-document in a particular folder, then specify ´folder_id´.}
+\item{folder_id}{Id of the folder to add the document to. \code{NULL} (default)
+uses the root folder.}
 
-\item{event_id}{The id of the event. To create series folder do not specify
-an ´event_id´. If to create a document in a particular event, then specify
-´event_id´.}
+\item{event_id}{Id of the event to add the document to. \code{NULL} (default)
+adds it to the series.}
 
-\item{push_notification}{Whether to send a push notification to the users
-when the document is created. Default is TRUE.}
+\item{push_notification}{Send a push notification to users? Default \code{TRUE}.}
 
-\item{push_notification_title}{The title of the push notification.}
+\item{push_notification_title}{Title of the push notification. Defaults to
+\code{document_name}.}
 
-\item{show_time}{Whether the time of the document should be shown. Default is
-FALSE.}
+\item{show_time}{Show the time of the document in the app? Default \code{FALSE}.}
 }
 \value{
-A console message.
+No return value, called for side effects. Prints a confirmation
+message.
 }
 \description{
-Create a link document in an event or series.
+Adds a link to a series or event.
+}
+\details{
+The document is added to the root folder of the series unless \code{event_id}
+and/or \code{folder_id} is given. Find these ids with \code{\link[=list_active_events]{list_active_events()}} and
+\code{\link[=list_documents]{list_documents()}}.
 }
 \examples{
 \dontrun{
 create_link(
-  api = "your_api_key",
-  password = "your_password",
-  document_name = "Your Link Name",
-  url = "https://www.example.com"
+  api = Sys.getenv("SPORTITY_API"),
+  password = "my_password",
+  document_name = "Results",
+  url = "https://www.example.com/results"
 )
 }
 }
+\seealso{
+Other document functions:
+\code{\link[=create_folder]{create_folder()}},
+\code{\link[=create_image]{create_image()}},
+\code{\link[=create_pdf]{create_pdf()}},
+\code{\link[=create_text]{create_text()}},
+\code{\link[=delete_document]{delete_document()}},
+\code{\link[=list_documents]{list_documents()}},
+\code{\link[=reorder_document]{reorder_document()}}
+}
+\concept{document functions}

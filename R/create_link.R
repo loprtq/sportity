@@ -1,36 +1,27 @@
-#' Create link document
+#' Create a link document
 #'
-#' @description
-#' Create a link document in an event or series.
+#' Adds a link to a series or event.
 #'
-#' @param api An API key from Sportity.
-#' @param password The event/series password.
-#' @param document_name The name of the document to be created.
-#' @param url The link to create a link document from.
-#' @param open_ext Whether the link should be opened in an external browser when
-#' clicked. Default is TRUE.
-#' @param folder_id The id of the folder to create the document in. To create a
-#' document in the root folder do not specify a ´folder_id´. If to create a
-#' document in a particular folder, then specify ´folder_id´.
-#' @param event_id The id of the event. To create series folder do not specify
-#' an ´event_id´. If to create a document in a particular event, then specify
-#' ´event_id´.
-#' @param push_notification Whether to send a push notification to the users
-#' when the document is created. Default is TRUE.
-#' @param push_notification_title The title of the push notification.
-#' @param show_time Whether the time of the document should be shown. Default is
-#' FALSE.
+#' The document is added to the root folder of the series unless `event_id`
+#' and/or `folder_id` is given. Find these ids with [list_active_events()] and
+#' [list_documents()].
 #'
-#' @return A console message.
+#' @inheritParams create_text
+#' @param url The URL to link to.
+#' @param open_ext Open the link in an external browser? Default `TRUE`.
+#'
+#' @return No return value, called for side effects. Prints a confirmation
+#'   message.
+#' @family document functions
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' create_link(
-#'   api = "your_api_key",
-#'   password = "your_password",
-#'   document_name = "Your Link Name",
-#'   url = "https://www.example.com"
+#'   api = Sys.getenv("SPORTITY_API"),
+#'   password = "my_password",
+#'   document_name = "Results",
+#'   url = "https://www.example.com/results"
 #' )
 #' }
 
